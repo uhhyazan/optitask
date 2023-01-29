@@ -5,25 +5,16 @@ import CardContent from '@mui/material/CardContent';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 
-type Props = {}
-
-// interface TaskCard{
-//   id: number,
-//   title: string,
-//   status: string,
-// }
+type Props = {task?:string}
 
 const TaskCard = (props: Props) => {
   return (
     <Card sx={{ maxWidth: 275 }}>
       <CardContent>
         <Typography sx={{ mb: 1.5 }} color="text.secondary">
-          adjective
+          {props.task}
         </Typography>
       </CardContent>
-      <CardActions>
-        <Button size="small">Complete</Button>
-      </CardActions>
     </Card>
   ) 
 }
