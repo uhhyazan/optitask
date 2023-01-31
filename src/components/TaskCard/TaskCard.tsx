@@ -1,22 +1,29 @@
-import * as React from 'react';
 import Card from '@mui/material/Card';
-import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
-import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
+import { Button } from '@mui/material';
+import React from 'react';
 
-type Props = {task?:string}
-
-const TaskCard = (props: Props) => {
-  return (
-    <Card sx={{ maxWidth: 275 }}>
-      <CardContent>
-        <Typography sx={{ mb: 1.5 }} color="text.secondary">
-          {props.task}
-        </Typography>
-      </CardContent>
-    </Card>
-  ) 
+interface Props {
+  task: {
+    title: string;
+    completed: boolean;
+  };
+  index: number;
+  completeTask: (index: number) => void;
 }
 
-export default TaskCard
+const TaskCard: React.FC<Props> = ({ task, index, completeTask }) => {
+    return (
+      <Card sx={{ maxWidth: 275 }}>
+        <CardContent>
+          <Typography variant="h6" style={{ textDecoration: task.completed ? "line-through" : "" }}>
+            {task.title}
+          </Typography>
+          <Button onClick={() => completeTask(index)} variant='text'>Complete</Button>
+        </CardContent>
+      </Card>
+    );
+  };
+
+export default TaskCard;
