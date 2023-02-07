@@ -7,23 +7,23 @@ import Title from '../Title'
 type TodoProps = {
     tasks: { id: number, title: string, isComplete: boolean }[],
     handleCompleteClick: (id: number) => void,
-    handleUncompleteClick: (index: number) => void,
+    handleDeleteClick: (index: number) => void,
     addTask: (title: string) => void
 }
 
-const ToDo: React.FC<TodoProps> = ({tasks, handleCompleteClick, handleUncompleteClick, addTask }) => {
+const ToDo: React.FC<TodoProps> = ({tasks, handleCompleteClick, handleDeleteClick, addTask }) => {
     return (
         <>
-            <div className='border-2 w-1/3 '>
+            <div className='border-2 w-1/3'>
                 <Title children='To-Do' />
-                <div id='tasks' className='ml-3 '>
+                <div id='tasks' className='ml-3'>
                     {tasks.map((task) => (
                         <TaskCard 
                             task={task}
                             index={task.id}
                             key={task.id}
-                            completeTask={handleCompleteClick}
-                            uncompleteTask={handleUncompleteClick}
+                            onClickComplete={handleCompleteClick}
+                            onClickDelete={handleDeleteClick}
                          />
                     ))}
                 </div>

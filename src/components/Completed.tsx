@@ -5,11 +5,11 @@ import Title from './Title'
 
 type CompletedProps = {
     tasks: { id: number, title: string, isComplete: boolean }[],
-    handleCompleteClick: (index: number) => void,
     handleUncompleteClick: (index: number) => void
+    handleDeleteClick: (index: number) => void
 }
 
-const Completed: React.FC<CompletedProps> = ({tasks, handleCompleteClick, handleUncompleteClick}) => {
+const Completed: React.FC<CompletedProps> = ({tasks, handleUncompleteClick, handleDeleteClick}) => {
     return (
         <>
             <div className='border-2 w-1/3'>
@@ -20,8 +20,8 @@ const Completed: React.FC<CompletedProps> = ({tasks, handleCompleteClick, handle
                             task={task}
                             index={task.id}
                             key={task.id}
-                            completeTask={handleCompleteClick}
-                            uncompleteTask={handleUncompleteClick}
+                            onClickComplete={handleUncompleteClick}
+                            onClickDelete={handleDeleteClick}
                          />
                     ))}
                 </div>

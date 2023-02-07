@@ -36,13 +36,17 @@ const Home = () => {
     }))
   }
 
+  const handleDeleteClick = (id: number) => {
+    setTasks(tasks.filter(task => task.id !== id))
+  }
+
   const toDoTasks = tasks.filter(task => !task.isComplete)
   const completedTasks = tasks.filter(task => task.isComplete)
 
     return (
       <div className='flex justify-between'>
-        <ToDo tasks={toDoTasks} handleCompleteClick={handleCompleteClick} handleUncompleteClick={handleUncompleteClick} addTask={addTask}/>
-        <Completed tasks={completedTasks} handleCompleteClick={handleCompleteClick} handleUncompleteClick={handleUncompleteClick} />
+        <ToDo tasks={toDoTasks} handleCompleteClick={handleCompleteClick} handleDeleteClick={handleDeleteClick} addTask={addTask}/>
+        <Completed tasks={completedTasks} handleUncompleteClick={handleUncompleteClick} handleDeleteClick={handleDeleteClick} />
         <Calendar />
       </div>
     );
