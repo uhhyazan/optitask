@@ -6,21 +6,29 @@ import React from 'react';
 
 interface Props {
   task: {
+    id: number;
     title: string;
-    completed: boolean;
+    isComplete: boolean;
   };
   index: number;
   completeTask: (index: number) => void;
+  uncompleteTask: (index: number) => void
 }
 
-const TaskCard: React.FC<Props> = ({ task, index, completeTask }) => {
+const TaskCard: React.FC<Props> = ({ task, index, completeTask, uncompleteTask }) => {
     return (
       <Card sx={{ maxWidth: 275 }}>
         <CardContent>
-          <Typography variant="h6" style={{ textDecoration: task.completed ? "line-through" : "" }}>
+          <Typography variant="h6" style={{ textDecoration: task.isComplete ? "line-through" : "" }}>
             {task.title}
           </Typography>
-          <Button onClick={() => completeTask(index)} variant='text'>Complete</Button>
+
+          {!task.isComplete &&
+            <Button onClick={() => completeTask(index)} variant='text'>Complete</Button>
+          }
+          {task.isComplete &&
+            <Button onClick={() => uncompleteTask(index)} variant='text'>Uncomplete</Button>
+          }
         </CardContent>
       </Card>
     );
