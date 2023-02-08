@@ -4,7 +4,7 @@ import TaskCard from './TaskCard/TaskCard'
 import Title from './Title'
 
 type CompletedProps = {
-    tasks: { id: number, title: string, isComplete: boolean }[],
+    tasks: { id: number, title: string, date: Date, isComplete: boolean }[],
     handleUncompleteClick: (index: number) => void
     handleDeleteClick: (index: number) => void
 }

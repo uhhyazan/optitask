@@ -3,14 +3,13 @@ import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
 import { Button } from '@mui/material';
 import React from 'react';
-import Home from '../../pages/home';
-import { maxHeight } from '@mui/system';
 
 interface Props {
   task: {
     id: number
     title: string
     isComplete: boolean
+    date: Date
   }
   index: number
   onClickComplete: (index: number) => void;
@@ -18,7 +17,7 @@ interface Props {
 }
 
 const TaskCard: React.FC<Props> = ({ task, index, onClickComplete, onClickDelete }) => {
-    return (
+    return (    
       <Card className='mb-5 max-w-[300px]'>
         <CardContent className='relative'>
           <Button className="absolute top-0 right-0 p-1" 
@@ -26,6 +25,9 @@ const TaskCard: React.FC<Props> = ({ task, index, onClickComplete, onClickDelete
 
           <Typography variant="h6" style={{ textDecoration: task.isComplete ? "line-through" : "", wordBreak: 'break-word' }}>
             {task.title}
+          </Typography>
+          <Typography variant="h6">
+            {task.date.toDateString()}
           </Typography>
 
           {!task.isComplete &&
@@ -35,7 +37,7 @@ const TaskCard: React.FC<Props> = ({ task, index, onClickComplete, onClickDelete
             <Button onClick={() => onClickComplete(index)} variant='text'>Uncomplete</Button>
           }
         </CardContent>
-      </Card>
+      </Card> 
     );
   };
 

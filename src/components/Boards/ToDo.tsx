@@ -5,7 +5,7 @@ import TaskCard from '../TaskCard/TaskCard'
 import Title from '../Title'
 
 type TodoProps = {
-    tasks: { id: number, title: string, isComplete: boolean }[],
+    tasks: { id: number, title: string, date: Date, isComplete: boolean }[],
     handleCompleteClick: (id: number) => void,
     handleDeleteClick: (index: number) => void,
     addTask: (title: string) => void
