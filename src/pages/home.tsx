@@ -1,23 +1,23 @@
 import React, { useState } from 'react'
-import ToDo from '../components/Boards/ToDo';
-import CalendarColumn from '../components/CalendarColumn';
-import Completed from '../components/Completed';
+import ToDo from '../components/Boards/ToDo'
+import CalendarColumn from '../components/CalendarColumn'
+import Completed from '../components/Completed'
 
 interface Task {
   id: number,
-  title: string;
-  date: Date;
-  isComplete: boolean;
+  title: string
+  date: Date
+  isComplete: boolean
 }
 
 const Home = () => {
   const [tasks, setTasks] = useState<Task[]>([])
-  const [id, setId] = useState<number>(0);
-  const [date, setDate] = useState(new Date())
+  const [id, setId] = useState<number>(0)
 
-  const addTask = (title: string) => {
+  const addTask = (title: string, date: Date) => {
     setTasks([...tasks, { id, title, date, isComplete: false }])
-    setId(id + 1);
+    setId(id + 1)
+    console.log("in add task")
   }
 
   const handleCompleteClick = (id: number) => {
@@ -51,7 +51,7 @@ const Home = () => {
         <Completed tasks={completedTasks} handleUncompleteClick={handleUncompleteClick} handleDeleteClick={handleDeleteClick} />
         <CalendarColumn tasks={tasks} />
       </div>
-    );
+    )
   }
   
   export default Home

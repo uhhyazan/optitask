@@ -1,5 +1,4 @@
-import { Button, TextField } from '@mui/material'
-import React, { useState } from 'react'
+import React from 'react'
 import CreateTask from '../CreateTask'
 import TaskCard from '../TaskCard/TaskCard'
 import Title from '../Title'
@@ -8,7 +7,7 @@ type TodoProps = {
     tasks: { id: number, title: string, date: Date, isComplete: boolean }[],
     handleCompleteClick: (id: number) => void,
     handleDeleteClick: (index: number) => void,
-    addTask: (title: string) => void
+    addTask: (title: string, date: Date) => void
 }
 
 const ToDo: React.FC<TodoProps> = ({tasks, handleCompleteClick, handleDeleteClick, addTask }) => {
