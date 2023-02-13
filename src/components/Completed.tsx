@@ -1,4 +1,4 @@
-import { Button, TextField } from '@mui/material'
+import { Paper } from '@mui/material'
 import React from 'react'
 import TaskCard from './TaskCard/TaskCard'
 import Title from './Title'
@@ -12,7 +12,8 @@ type CompletedProps = {
 const Completed: React.FC<CompletedProps> = ({tasks, handleUncompleteClick, handleDeleteClick}) => {
     return (
         <>
-            <div className='border-2'>
+        <Paper elevation={2} className='m-3 bg-slate-100'>
+            <div className=''>
                 <Title children='Completed' />
                 <div id='tasks' className='ml-3 '>
                     {tasks.map((task) => (
@@ -26,6 +27,7 @@ const Completed: React.FC<CompletedProps> = ({tasks, handleUncompleteClick, hand
                     ))}
                 </div>
             </div>
+            </Paper>
         </>
     )
 }

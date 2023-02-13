@@ -1,4 +1,4 @@
-import { Card, TextField } from '@mui/material'
+import { Card, Paper, TextField } from '@mui/material'
 import { DesktopDatePicker } from '@mui/x-date-pickers'
 import React, { useState } from 'react'
 
@@ -26,7 +26,7 @@ const CreateTask = ({ addTask }: {addTask: any}) => {
 
     return (
         <>
-        <Card>
+        <Paper elevation={5}>
             <div className='px-4 py-5 sm:gap-4 sm:px-6'>
                 <h3 className='text-center'>Add a New Task</h3>
                 <form onSubmit={handleSubmit} className=' ml-4'>
@@ -57,7 +57,7 @@ const CreateTask = ({ addTask }: {addTask: any}) => {
                     </button>
                 </form>
             </div>
-            </Card>
+            </Paper>
         </>
     )
 }

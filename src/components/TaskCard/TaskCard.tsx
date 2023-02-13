@@ -18,24 +18,25 @@ interface Props {
 
 const TaskCard: React.FC<Props> = ({ task, index, onClickComplete, onClickDelete }) => {
     return (    
-      <Card className='mb-5 max-w-[300px]'>
+      <Card className='m-5 max-w-full'>
         <CardContent className='relative'>
           <Button className="absolute top-0 right-0 p-1" 
           onClick={() => onClickDelete(index)}>X</Button>
 
-          <Typography variant="h6" style={{ textDecoration: task.isComplete ? "line-through" : "", wordBreak: 'break-word' }}>
+          <Typography variant="h5" style={{ textDecoration: task.isComplete ? "line-through" : "", wordBreak: 'break-word' }}>
             {task.title}
           </Typography>
-          <Typography variant="h6">
-            {task.date.toDateString()}
-          </Typography>
-
-          {!task.isComplete &&
-            <Button onClick={() => onClickComplete(index)} variant='text'>Complete</Button>
-          }
-          {task.isComplete &&
-            <Button onClick={() => onClickComplete(index)} variant='text'>Uncomplete</Button>
-          }
+          <div className='flex'>
+            <h5 className='justify-left'>
+              Due: {task.date.toDateString()}
+            </h5>
+            {!task.isComplete &&
+              <Button onClick={() => onClickComplete(index)} variant='text' className='justify-right'>Complete</Button>
+            }
+            {task.isComplete &&
+              <Button onClick={() => onClickComplete(index)} variant='text'>Uncomplete</Button>
+            }
+          </div>
         </CardContent>
       </Card> 
     );

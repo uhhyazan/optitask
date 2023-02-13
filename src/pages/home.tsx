@@ -46,7 +46,7 @@ const Home = () => {
   const completedTasks = tasks.filter(task => task.isComplete)
 
     return (
-      <div className='grid grid-cols-3 h-screen'>
+      <div className='grid grid-cols-3'>
         <ToDo tasks={toDoTasks} handleCompleteClick={handleCompleteClick} handleDeleteClick={handleDeleteClick} addTask={addTask}/>
         <Completed tasks={completedTasks} handleUncompleteClick={handleUncompleteClick} handleDeleteClick={handleDeleteClick} />
         <CalendarColumn tasks={tasks} />

@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import Title from './Title'
 import TaskPreview from './TaskPreview'
 import TaskCalendar from './TaskCalendar';
+import { Paper } from '@mui/material';
 
 type CalendarProps = {
     tasks: { id: number, title: string, date: Date, isComplete: boolean }[],
@@ -18,29 +19,35 @@ const CalendarColumn: React.FC<CalendarProps> = ({tasks}) => {
         )
     })
 
+    const daysOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+
     return (
         <>
-            <div className='border-2'>
-            <Title>Calendar</Title>
-                <div className="calendar-container">
-                    <TaskCalendar
-                        tasks={tasks}
-                        onChange={setSelectedDate}
-                        value={selectedDate}
-                    />
-                </div>
-                <div className="text-center">
-                    Selected date: {selectedDate.toDateString()}
-                </div>
-                <div id='tasks' className='ml-3'>
-                    {filteredTasks.map((task) => (
-                        <TaskPreview
-                            task={task}
-                            index={task.id}
+            <Paper elevation={2} className='m-3 bg-slate-100'>
+                <div className='border-2'>
+                <Title>Calendar</Title>
+                    <div className="calendar-container">
+                        <TaskCalendar
+                            tasks={tasks}
+                            onChange={setSelectedDate}
+                            value={selectedDate}
                         />
-                    ))}
+                    </div>
+                    <div className="mt-4">
+                        <h4 className="text-center font-medium text-med">
+                            Tasks for {daysOfWeek[selectedDate.getDay()]}, {selectedDate.toLocaleDateString('en-US', {month: 'long', day: 'numeric', year: 'numeric'})}:
+                        </h4>
+                        <div id='tasks' className=''>
+                            {filteredTasks.map((task) => (
+                            <TaskPreview
+                                task={task}
+                                index={task.id}
+                            />
+                            ))}
+                        </div>
+                    </div>
                 </div>
-            </div>
+            </Paper>
         </>
     )
 }
