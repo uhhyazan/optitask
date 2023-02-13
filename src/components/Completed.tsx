@@ -12,7 +12,7 @@ type CompletedProps = {
 const Completed: React.FC<CompletedProps> = ({tasks, handleUncompleteClick, handleDeleteClick}) => {
     return (
         <>
-            <div className='border-2 w-1/3'>
+            <div className='border-2'>
                 <Title children='Completed' />
                 <div id='tasks' className='ml-3 '>
                     {tasks.map((task) => (

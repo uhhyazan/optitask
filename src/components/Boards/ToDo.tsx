@@ -13,7 +13,7 @@ type TodoProps = {
 const ToDo: React.FC<TodoProps> = ({tasks, handleCompleteClick, handleDeleteClick, addTask }) => {
     return (
         <>
-            <div className='border-2 w-1/3'>
+            <div className='border-2'>
                 <Title children='To-Do' />
                 <div id='tasks' className='ml-3'>
                     {tasks.map((task) => (

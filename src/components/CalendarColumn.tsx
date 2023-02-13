@@ -1,8 +1,7 @@
 import React, { useState } from 'react'
 import Title from './Title'
-import Calendar, { CalendarTileProperties } from 'react-calendar'
 import TaskPreview from './TaskPreview'
-import 'react-calendar/dist/Calendar.css';
+import TaskCalendar from './TaskCalendar';
 
 type CalendarProps = {
     tasks: { id: number, title: string, date: Date, isComplete: boolean }[],
@@ -19,19 +18,16 @@ const CalendarColumn: React.FC<CalendarProps> = ({tasks}) => {
         )
     })
 
-    const highlightTasks = ({date}: CalendarTileProperties) => {
-        const dateString = date.toDateString();
-        return tasks.some(task => task.date.toDateString() === dateString)
-            ? 'highlighted'
-            : '';
-    };
-
     return (
         <>
-            <div className='border-2 col-span-1 w-1/3'>
+            <div className='border-2'>
             <Title>Calendar</Title>
                 <div className="calendar-container">
-                    <Calendar onChange={setSelectedDate} value={selectedDate} tileClassName={highlightTasks}/>
+                    <TaskCalendar
+                        tasks={tasks}
+                        onChange={setSelectedDate}
+                        value={selectedDate}
+                    />
                 </div>
                 <div className="text-center">
                     Selected date: {selectedDate.toDateString()}
