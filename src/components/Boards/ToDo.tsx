@@ -1,5 +1,5 @@
-import { Button, Paper } from '@mui/material'
-import React, { useState } from 'react'
+import {  Button, Paper } from '@mui/material'
+import React from 'react'
 import CreateTask from '../CreateTask'
 import TaskCard from '../TaskCard/TaskCard'
 import Title from '../Title'
@@ -12,16 +12,27 @@ type TodoProps = {
 }
 
 const ToDo: React.FC<TodoProps> = ({tasks, handleCompleteClick, handleDeleteClick, addTask }) => {
-    const [showCreateTask, setShowCreateTask] = useState(false)
+    const [open, setOpen] = React.useState(false);
+    const handleOpen = () => setOpen(true);
+    const handleClose = () => setOpen(false);
+
+    const buttonStyling = {
+        width: '100%',
+        bottom: 0,
+        position: 'absolute',
+        backgroundColor: '#C7D2FE',
+        color: 'black',
+        '&:hover': {
+            background: "#6366F1",
+            color: 'white'
+        }
+    }
 
     return (
         <>
-            <Paper elevation={2} className='m-3 bg-slate-100'>
+            <Paper elevation={2} className='m-3 bg-slate-100' sx={{position: 'relative'}}>
                 <div className='border-2'>
-                    <Title children='To-Do' />                
-                    <div>
-                        {showCreateTask && <CreateTask addTask={addTask} />}
-                    </div>
+                    <Title children={'To-Do'}/>                    
                     <div id='tasks'>
                         {tasks.map((task) => (
                             <TaskCard 
@@ -30,17 +41,17 @@ const ToDo: React.FC<TodoProps> = ({tasks, handleCompleteClick, handleDeleteClic
                                 key={task.id}
                                 onClickComplete={handleCompleteClick}
                                 onClickDelete={handleDeleteClick}
-                                />
+                            />
                         ))}
                     </div>
-                    <div>
-                        <Button 
-                            className='text-center font-bold py-2 px-4 '
-                            onClick={() => setShowCreateTask(!showCreateTask)}
-                        >
-                            Add Task +
-                        </Button>
-                    </div>
+                    <Button 
+                        onClick={handleOpen}
+                        variant='outlined'
+                        sx={buttonStyling}
+                    >
+                        Add Task +
+                    </Button>
+                    <CreateTask addTask={addTask} open={open} handleClose={handleClose}/>
                 </div>
             </Paper>
         </>

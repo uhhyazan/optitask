@@ -30,12 +30,11 @@ const TaskCard: React.FC<Props> = ({ task, index, onClickComplete, onClickDelete
             <h5 className='justify-left'>
               Due: {task.date.toDateString()}
             </h5>
-            {!task.isComplete &&
-              <Button onClick={() => onClickComplete(index)} variant='text' className='justify-right'>Complete</Button>
-            }
-            {task.isComplete &&
+            {task.isComplete ? (
               <Button onClick={() => onClickComplete(index)} variant='text'>Uncomplete</Button>
-            }
+            ) : (
+              <Button onClick={() => onClickComplete(index)} variant='text'>Complete</Button>
+            )}
           </div>
         </CardContent>
       </Card> 

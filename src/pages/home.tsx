@@ -17,7 +17,6 @@ const Home = () => {
   const addTask = (title: string, date: Date) => {
     setTasks([...tasks, { id, title, date, isComplete: false }])
     setId(id + 1)
-    console.log("in add task")
   }
 
   const handleCompleteClick = (id: number) => {
