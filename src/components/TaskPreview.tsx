@@ -16,8 +16,8 @@ interface Props {
 
 const TaskPreview: React.FC<Props> = ({ task, index}) => {
     return (    
-      <Card className='mb-5 max-w-[300px]'>
-        <CardContent className='relative'>
+      <Card >
+        <CardContent >
           <Typography variant="h6" style={{ textDecoration: task.isComplete ? "line-through" : "", wordBreak: 'break-word' }}>
             {task.title}
           </Typography>

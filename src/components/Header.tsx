@@ -1,10 +1,15 @@
+import { AppBar, Toolbar, Typography } from '@mui/material';
 import React, { FC } from 'react';
 
 const Header: FC = () => {
   return (
-    <header className="bg-indigo-500 text-center py-4 text-white">
-      <h1 className="text-3xl font-bold">OptiTask</h1>
-    </header>
+    <AppBar position="static" sx={{background:'white', opacity: .8 }}>
+      <Toolbar sx={{ display: 'flex', justifyContent: 'left', py: 0 }}>
+        <Typography variant="h4" component="h1" sx={{ opacity: 1, fontWeight: 'bold', color: 'black' }}>
+          OPTITASK
+        </Typography>
+      </Toolbar>
+    </AppBar>
   );
 };
 

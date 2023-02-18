@@ -8,7 +8,6 @@ function App() {
   return (
     <>
       <LocalizationProvider dateAdapter = {AdapterDateFns}>
-        <Header />
         <Home />
       </LocalizationProvider>
     </>

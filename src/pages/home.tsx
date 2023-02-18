@@ -1,7 +1,9 @@
+import { Box } from '@mui/material'
 import React, { useState } from 'react'
 import ToDo from '../components/Boards/ToDo'
 import CalendarColumn from '../components/CalendarColumn'
 import Completed from '../components/Completed'
+import Header from '../components/Header'
 
 interface Task {
   id: number,
@@ -45,11 +47,14 @@ const Home = () => {
   const completedTasks = tasks.filter(task => task.isComplete)
 
     return (
-      <div className='grid grid-cols-3'>
-        <ToDo tasks={toDoTasks} handleCompleteClick={handleCompleteClick} handleDeleteClick={handleDeleteClick} addTask={addTask}/>
-        <Completed tasks={completedTasks} handleUncompleteClick={handleUncompleteClick} handleDeleteClick={handleDeleteClick} />
-        <CalendarColumn tasks={tasks} />
-      </div>
+      <Box sx={{background:"radial-gradient(at right top, rgb(236, 72, 153), rgb(239, 68, 68), rgb(234, 179, 8))"}}>
+        <Header />
+        <Box sx={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', height: '100vh',  background:"radial-gradient(at right top, rgb(236, 72, 153), rgb(239, 68, 68), rgb(234, 179, 8))"}}>
+          <ToDo tasks={toDoTasks} handleCompleteClick={handleCompleteClick} handleDeleteClick={handleDeleteClick} addTask={addTask}/>
+          <Completed tasks={completedTasks} handleUncompleteClick={handleUncompleteClick} handleDeleteClick={handleDeleteClick} />
+          <CalendarColumn tasks={tasks} />
+        </Box>
+      </Box>
     )
   }
   

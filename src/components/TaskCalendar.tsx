@@ -1,5 +1,5 @@
 import Calendar, { CalendarTileProperties } from "react-calendar"
-import 'react-calendar/dist/Calendar.css'
+import '../Calendar.css'
 
 
 type TaskCalendarProps = {
@@ -17,7 +17,12 @@ const TaskCalendar: React.FC<TaskCalendarProps> = ({tasks, onChange, value}) => 
     }
 
     return (
-        <Calendar onChange={onChange} value={value} tileClassName={highlightTasks} />
+        <Calendar 
+            onChange={onChange} 
+            value={value} 
+            tileClassName={highlightTasks} 
+            calendarType="US"
+        />
     )
 }
 

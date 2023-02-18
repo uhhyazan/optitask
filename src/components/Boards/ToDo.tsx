@@ -1,4 +1,4 @@
-import {  Button, Paper } from '@mui/material'
+import {  Box, Button, Paper } from '@mui/material'
 import React from 'react'
 import CreateTask from '../CreateTask'
 import TaskCard from '../TaskCard/TaskCard'
@@ -25,15 +25,25 @@ const ToDo: React.FC<TodoProps> = ({tasks, handleCompleteClick, handleDeleteClic
         '&:hover': {
             background: "#6366F1",
             color: 'white'
-        }
+        },
+        borderRadius: 4,
+        borderTopRightRadius: 0,
+        borderTopLeftRadius: 0
+    }
+
+    const columnStyling = {
+        position: 'relative',
+        margin: 2,
+        background:'#F5F5F4',
+        borderRadius: 4
     }
 
     return (
         <>
-            <Paper elevation={2} className='m-3 bg-slate-100' sx={{position: 'relative'}}>
-                <div className='border-2'>
+            <Paper className="column" elevation={2} sx={columnStyling}>
+                <Box>
                     <Title children={'To-Do'}/>                    
-                    <div id='tasks'>
+                    <Box id='tasks'>
                         {tasks.map((task) => (
                             <TaskCard 
                                 task={task}
@@ -43,7 +53,7 @@ const ToDo: React.FC<TodoProps> = ({tasks, handleCompleteClick, handleDeleteClic
                                 onClickDelete={handleDeleteClick}
                             />
                         ))}
-                    </div>
+                    </Box>
                     <Button 
                         onClick={handleOpen}
                         variant='outlined'
@@ -52,7 +62,7 @@ const ToDo: React.FC<TodoProps> = ({tasks, handleCompleteClick, handleDeleteClic
                         Add Task +
                     </Button>
                     <CreateTask addTask={addTask} open={open} handleClose={handleClose}/>
-                </div>
+                </Box>
             </Paper>
         </>
     )
