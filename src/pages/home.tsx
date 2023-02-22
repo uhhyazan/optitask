@@ -1,6 +1,6 @@
 import { Box } from '@mui/material'
 import React, { useState } from 'react'
-import ToDo from '../components/Boards/ToDo'
+import ToDo from '../components/ToDo'
 import CalendarColumn from '../components/CalendarColumn'
 import Completed from '../components/Completed'
 import Header from '../components/Header'
@@ -13,12 +13,48 @@ interface Task {
 }
 
 const Home = () => {
+  const columnStyling = {
+    display: 'grid',
+    gridTemplateColumns: 'repeat(1, 1fr)',
+    gridTemplateRows: '1fr 1fr 1fr',
+    height: '100vh',
+    background:
+      'radial-gradient(at right top, rgb(236, 72, 153), rgb(239, 68, 68), rgb(234, 179, 8))',
+    '@media (min-width: 600px)': {
+      gridTemplateColumns: '1fr 1fr 1fr',
+      gridTemplateRows: '1fr',
+      alignItems: 'stretch',
+      width: '100vw',
+      alignContent: 'space-between'
+    },
+    
+  }
+
+  const backgroundStyling = {
+    position: 'fixed',
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
+    zIndex: 0,
+    background: "radial-gradient(at right top, rgb(236, 72, 153), rgb(239, 68, 68), rgb(234, 179, 8))",
+  }
+
   const [tasks, setTasks] = useState<Task[]>([])
   const [id, setId] = useState<number>(0)
 
   const addTask = (title: string, date: Date) => {
     setTasks([...tasks, { id, title, date, isComplete: false }])
     setId(id + 1)
+  }
+
+  const editTask = (id: number, updatedTitle: string, updatedDate: Date) => {
+    setTasks(tasks.map(task => {
+      if (task.id === id) {
+        return { ...task, title: updatedTitle, date: updatedDate }
+      }
+      return task
+    }))
   }
 
   const handleCompleteClick = (id: number) => {
@@ -47,11 +83,12 @@ const Home = () => {
   const completedTasks = tasks.filter(task => task.isComplete)
 
     return (
-      <Box sx={{background:"radial-gradient(at right top, rgb(236, 72, 153), rgb(239, 68, 68), rgb(234, 179, 8))"}}>
+      <Box sx={{position: 'relative'}}>
         <Header />
-        <Box sx={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', height: '100vh',  background:"radial-gradient(at right top, rgb(236, 72, 153), rgb(239, 68, 68), rgb(234, 179, 8))"}}>
-          <ToDo tasks={toDoTasks} handleCompleteClick={handleCompleteClick} handleDeleteClick={handleDeleteClick} addTask={addTask}/>
-          <Completed tasks={completedTasks} handleUncompleteClick={handleUncompleteClick} handleDeleteClick={handleDeleteClick} />
+        <Box sx={backgroundStyling} />
+        <Box sx={columnStyling}>
+          <ToDo tasks={toDoTasks} handleCompleteClick={handleCompleteClick} handleDeleteClick={handleDeleteClick} addTask={addTask} editTask={editTask}/>
+          <Completed tasks={completedTasks} handleUncompleteClick={handleUncompleteClick} handleDeleteClick={handleDeleteClick} editTask={editTask} />
           <CalendarColumn tasks={tasks} />
         </Box>
       </Box>

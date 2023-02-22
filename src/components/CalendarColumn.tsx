@@ -2,7 +2,8 @@ import React, { useState } from 'react'
 import Title from './Title'
 import TaskPreview from './TaskPreview'
 import TaskCalendar from './TaskCalendar';
-import { Box, Paper, Typography } from '@mui/material';
+import { Box, List, ListItem, Paper, Typography } from '@mui/material';
+import daysOfWeek from '../data/data';
 
 type CalendarProps = {
     tasks: { id: number, title: string, date: Date, isComplete: boolean }[],
@@ -19,19 +20,37 @@ const CalendarColumn: React.FC<CalendarProps> = ({tasks}) => {
         )
     })
 
-    const daysOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
-
     const columnStyling = {
-        position: 'relative',
-        margin: 2,
-        background:'#F5F5F4',
-        borderRadius: 4
+      minWidth: '400px',
+      position: 'relative',
+      margin: 2,
+      background:'#F5F5F4',
+      borderRadius: 4,
+    }
+
+    const responsiveStyling = {
+      display: 'flex',
+      flexDirection: 'column',
+      '@media (min-width: 600px)': {
+        flexDirection: 'row',
+        alignItems: 'stretch',
+        height: 'auto',
+      },
+    }
+  
+    const tasksBoxStyling = {
+      flexGrow: 1,
+      maxHeight: 'calc(100vh - 180px)',
+      '@media (min-width: 600px)': {
+        flexGrow: 2,
+        maxHeight: 'none',
+      },
     }
 
     return (
         <>
-        <Paper elevation={2} sx={columnStyling}>
-          <Box>
+        <Paper elevation={2} sx={{...columnStyling, ...responsiveStyling }}>
+          <Box sx={tasksBoxStyling}>
             <Title>
               Calendar
             </Title>
@@ -43,10 +62,15 @@ const CalendarColumn: React.FC<CalendarProps> = ({tasks}) => {
                 Tasks for {daysOfWeek[selectedDate.getDay()]},{' '}
                 {selectedDate.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}:
               </Typography>
-              <Box id="tasks">
-                {filteredTasks.map((task) => (
-                  <TaskPreview task={task} index={task.id} />
-                ))}
+              <Box sx={{display: 'flex', justifyContent: 'center', minHeight: '50vh'}}>
+                <List sx={{ width: '100%', maxWidth: 400 }}>
+                  {filteredTasks.map((task) => (
+                    <ListItem key={task.id} sx={{ display: 'flex', alignItems: 'center' }}>
+                      <Typography variant='h6' sx={{ mr: 1 }}>&#x2022;</Typography>
+                      <Typography variant='h6'>{task.title}</Typography>
+                    </ListItem>
+                  ))}
+                </List>
               </Box>
             </Box>
           </Box>

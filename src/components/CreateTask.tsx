@@ -1,10 +1,9 @@
 import { Box, Button, FormControl, Modal, TextField, Typography } from '@mui/material'
-import { width } from '@mui/system';
 import { DesktopDatePicker } from '@mui/x-date-pickers'
 import React, { useState } from 'react'
 
 interface CreateTaskProps {
-    addTask: (title: string, date: Date) => void;
+    addTask: (title: string, date: Date) => void
     open: boolean;
     handleClose: () => void;
   }

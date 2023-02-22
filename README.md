@@ -1,46 +1,66 @@
-# Getting Started with Create React App
+# OptiTask
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+OptiTask is a task management app created with Typescript, React, and Material UI. It allows users to create, view, edit, and delete tasks, and provides a clean and intuitive interface for managing tasks.
 
-## Available Scripts
+## Features
 
-In the project directory, you can run:
+- Create new tasks with a title, description, and due date
+- Edit existing tasks
+- Mark tasks as completed or uncompleted
+- Filter tasks by completion status
+- Delete tasks
+- View a list of all tasks or only uncompleted tasks
+- Responsive design for mobile and desktop devices
 
-### `npm start`
+## Getting started
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+To run the app locally, follow these steps:
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+1. Clone this repository to your local machine using `git clone https://github.com/yourusername/optitask.git`
+2. Navigate to the project directory using `cd optitask`
+3. Install dependencies using `npm install`
+4. Start the development server using `npm start`
+5. Open your browser and navigate to `http://localhost:3000` to view the app
 
-### `npm test`
+## Dependencies
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+OptiTask has the following dependencies:
 
-### `npm run build`
+- @emotion/react
+- @emotion/styled
+- @mui/icons-material
+- @mui/material
+- @mui/x-date-pickers
+- date-fns
+- react
+- react-dom
+- react-scripts
+- typescript
+- web-vitals
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## DevDependencies
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+OptiTask has the following devDependencies:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- @types/jest
+- @types/node
+- @types/react
+- @types/react-dom
+- @types/react-calendar
+- @testing-library/jest-dom
+- @testing-library/react
+- @testing-library/user-event
 
-### `npm run eject`
+## Contributing
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+If you would like to contribute to OptiTask, please follow these steps:
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+1. Fork this repository to your own account
+2. Create a new branch with your changes using `git checkout -b my-feature-branch`
+3. Commit your changes using `git commit -am 'Add new feature'`
+4. Push your changes to your forked repository using `git push origin my-feature-branch`
+5. Create a pull request from your branch to the original repository
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## License
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+OptiTask is licensed under the [MIT License](https://opensource.org/licenses/MIT).
