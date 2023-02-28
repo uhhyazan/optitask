@@ -17,7 +17,6 @@ const Home = () => {
     display: 'grid',
     gridTemplateColumns: 'repeat(1, 1fr)',
     gridTemplateRows: '1fr 1fr 1fr',
-    height: '100vh',
     background:
       'radial-gradient(at right top, rgb(236, 72, 153), rgb(239, 68, 68), rgb(234, 179, 8))',
     '@media (min-width: 600px)': {
@@ -83,7 +82,7 @@ const Home = () => {
   const completedTasks = tasks.filter(task => task.isComplete)
 
     return (
-      <Box sx={{position: 'relative'}}>
+      <Box>
         <Header />
         <Box sx={backgroundStyling} />
         <Box sx={columnStyling}>

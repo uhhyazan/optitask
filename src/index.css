@@ -7,10 +7,12 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-.column { 
-  height: '400px'; 
-  overflow: 'auto';
-  margin: 3;
-  background-color: '#F1F5F9';
-  position: 'relative';
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #bebebe;
+  border-radius: 5px;
 }

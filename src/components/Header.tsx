@@ -6,11 +6,11 @@ const Header: FC = () => {
     <AppBar position="static" sx={{
       background:'white',
       position:'relative',
+      margin: 0,
       opacity: 0.8,
-      zIndex: 1,
-      width:'auto'
+      zIndex: 2,
     }}>
-      <Toolbar sx={{ display: 'flex', justifyContent: 'left', py: 0 }}>
+      <Toolbar >
         <Typography variant="h4" component="h1" sx={{ opacity: 1, fontWeight: 'bold', color: 'black' }}>
           OPTITASK
         </Typography>

@@ -7,14 +7,14 @@ interface Props {
 
 const styling = {
    color: 'Black',
-   width: 1, 
+   width: '100%', 
    fontWeight: 'bold', 
-   mb: 4, 
+   mb: 1,
+   pb:0 , 
    display: 'flex', 
    justifyContent: 'Left',
    ml: 2,
    mt: 1,
-   text: 'white',
    borderTopLeftRadius: 4,
    borderTopRightRadius: 4 
 }

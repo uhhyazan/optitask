@@ -25,8 +25,8 @@ const TaskCard: React.FC<Props> = ({ task, index, onClickComplete, onClickDelete
   }
 
   const taskCardStyling = {
-    m: 3, 
-    maxWidth: '100%'
+    minWidth: '80%',
+    m: 1
   }
 
   const deleteButtonStyling = {
@@ -34,10 +34,6 @@ const TaskCard: React.FC<Props> = ({ task, index, onClickComplete, onClickDelete
     top: 0, 
     right: 0, 
     p: 1
-  }
-
-  const dateTextStyling = {
-    
   }
   
   const popoverOptionStyling = {
@@ -107,7 +103,7 @@ const TaskCard: React.FC<Props> = ({ task, index, onClickComplete, onClickDelete
             {task.title}
           </Typography>
           <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center'}}>
-            <Typography variant='subtitle1' sx={dateTextStyling}>
+            <Typography variant='subtitle1'>
               Complete by: {task.date.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}
             </Typography>
             {task.isComplete ? (
