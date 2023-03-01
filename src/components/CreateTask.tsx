@@ -4,8 +4,8 @@ import React, { useState } from 'react'
 
 interface CreateTaskProps {
     addTask: (title: string, date: Date) => void
-    open: boolean;
-    handleClose: () => void;
+    open: boolean
+    handleClose: () => void
   }
 
 const CreateTask = ({ addTask, open, handleClose }: CreateTaskProps) => {
@@ -18,9 +18,9 @@ const CreateTask = ({ addTask, open, handleClose }: CreateTaskProps) => {
         'Lunch with Bob',
         'Build a task app',
         'Find Atlantis'
-    ];
-    const randomIndex = Math.floor(Math.random() * placeholders.length);
-    const placeholder = placeholders[randomIndex];
+    ]
+    const randomIndex = Math.floor(Math.random() * placeholders.length)
+    const placeholder = placeholders[randomIndex]
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault()

@@ -10,7 +10,7 @@ type TaskCalendarProps = {
 
 const TaskCalendar: React.FC<TaskCalendarProps> = ({tasks, onChange, value}) => {
     const highlightTasks = ({date}: CalendarTileProperties) => {
-        const dateString = date.toDateString();
+        const dateString = date.toDateString()
         return tasks.some(task => task.date.toDateString() === dateString)
             ? 'highlighted'
             : ''

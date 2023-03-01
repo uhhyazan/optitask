@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import Title from './Title'
-import TaskCalendar from './TaskCalendar';
-import { Box, List, ListItem, Paper, Typography } from '@mui/material'
+import TaskCalendar from './TaskCalendar'
+import { Box, List, ListItem, Typography } from '@mui/material'
 import daysOfWeek from '../data/data'
 
 import { columnStyling, containerContentStyling } from './styling/styling'
@@ -14,7 +14,7 @@ type CalendarProps = {
 const CalendarColumn: React.FC<CalendarProps> = ({tasks}) => {
     const [selectedDate, setSelectedDate] = useState(new Date())
     const filteredTasks = tasks.filter(task => {
-        const taskDate = new Date(task.date);
+        const taskDate = new Date(task.date)
         return (
             taskDate.getFullYear() === selectedDate.getFullYear() &&
             taskDate.getMonth() === selectedDate.getMonth() &&
@@ -39,7 +39,7 @@ const CalendarColumn: React.FC<CalendarProps> = ({tasks}) => {
                 <List>
                   {filteredTasks.map((task) => (
                     <ListItem >
-                      <Typography variant='h6' sx={{ mr: 1 }}>&#x2022;</Typography>
+                      <Typography variant='h6' sx={{ mr: 1 }}>&#x2022</Typography>
                       <Typography variant='h6'>{task.title}</Typography>
                     </ListItem>
                   ))}

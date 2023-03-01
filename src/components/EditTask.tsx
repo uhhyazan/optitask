@@ -11,19 +11,19 @@ interface EditTaskProps {
 }
 
 const EditTask = ({ task, editTask, open, handleClose }: EditTaskProps) => {
-  const [value, setValue] = useState(task.title);
-  const [selectedDate, setSelectedDate] = useState(task.date);
+  const [value, setValue] = useState(task.title)
+  const [selectedDate, setSelectedDate] = useState(task.date)
 
   const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!value) return;
+    e.preventDefault()
+    if (!value) return
 
     editTask(task.id, value, selectedDate)
 
-    setValue("");
-    setSelectedDate(new Date());
-    handleClose();
-  };
+    setValue("")
+    setSelectedDate(new Date())
+    handleClose()
+  }
 
   const style = {
     position: 'absolute' as 'absolute',
@@ -35,7 +35,7 @@ const EditTask = ({ task, editTask, open, handleClose }: EditTaskProps) => {
     border: '1px solid #000',
     boxShadow: 24,
     p: 4
-  };
+  }
 
   const inputStyling = {
     taskStyling: {
@@ -45,17 +45,17 @@ const EditTask = ({ task, editTask, open, handleClose }: EditTaskProps) => {
       width: '75%'
     },
     marginTop: 3
-  };
+  }
 
   const titleStyling = {
     textAlign: 'center',
     fontWeight: 'medium',
-  };
+  }
 
   const buttonStyling = {
     display: 'block',
     width: '20%',
-  };
+  }
 
   const containerStyle = {
     display: 'flex',
@@ -63,7 +63,7 @@ const EditTask = ({ task, editTask, open, handleClose }: EditTaskProps) => {
     justifyContent: 'space-between',
     alignItems: 'baseline',
     flexWrap: 'wrap',
-  };
+  }
 
   return (
     <>
@@ -106,4 +106,4 @@ const EditTask = ({ task, editTask, open, handleClose }: EditTaskProps) => {
   )
 }
 
-export default EditTask;
+export default EditTask

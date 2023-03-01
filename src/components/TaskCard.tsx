@@ -3,10 +3,10 @@ import CardContent from '@mui/material/CardContent'
 import Typography from '@mui/material/Typography'
 import { Box, Button, Popover } from '@mui/material'
 import DeleteIcon from '@mui/icons-material/Delete'
-import EditIcon from '@mui/icons-material/Edit';
+import EditIcon from '@mui/icons-material/Edit'
 
-import React, { useState } from 'react';
-import EditTask from './EditTask';
+import React, { useState } from 'react'
+import EditTask from './EditTask'
 import Task from '../data/types'
 
 
@@ -49,7 +49,7 @@ const TaskCard: React.FC<Props> = ({ task, index, onClickComplete, onClickDelete
     setAnchorEl(event.currentTarget)
   }
   const handlePopoverClose = () => {
-    setAnchorEl(null);
+    setAnchorEl(null)
   }
   const handleEditTaskOpen = () => {
     setIsEditTaskOpen(true)
@@ -122,7 +122,7 @@ const TaskCard: React.FC<Props> = ({ task, index, onClickComplete, onClickDelete
           )}
         </CardContent>
       </Card>
-    );
-};
+    )
+}
 
-export default TaskCard;
+export default TaskCard

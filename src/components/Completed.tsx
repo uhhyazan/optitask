@@ -1,4 +1,4 @@
-import { Box, List, ListItem, Paper } from '@mui/material'
+import { Box, List, ListItem } from '@mui/material'
 import React from 'react'
 import TaskCard from './TaskCard'
 import Title from './Title'

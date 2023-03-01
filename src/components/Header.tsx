@@ -1,5 +1,5 @@
-import { AppBar, Toolbar, Typography } from '@mui/material';
-import React, { FC } from 'react';
+import { AppBar, Toolbar, Typography } from '@mui/material'
+import React, { FC } from 'react'
 
 const Header: FC = () => {
   return (
@@ -19,4 +19,4 @@ const Header: FC = () => {
   )
 }
 
-export default Header;
+export default Header

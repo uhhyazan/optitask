@@ -13,7 +13,7 @@ export const addTaskButtonStyling = {
     borderRadius: 4,
     borderTopRightRadius: 0,
     borderTopLeftRadius: 0
-  };
+  }
   
   export const columnStyling = {
     display: 'flex',
