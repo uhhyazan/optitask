@@ -30,23 +30,20 @@ const CalendarColumn: React.FC<CalendarProps> = ({tasks}) => {
             <Box sx={{ justifyContent: 'center', display: 'flex', mb: 2 }}>
               <TaskCalendar tasks={tasks} onChange={setSelectedDate} value={selectedDate} />
             </Box>
-            
-              <Typography variant="h6" sx={{ fontWeight: 'medium', textAlign: 'center', mb: 2 }}>
-                Tasks for {daysOfWeek[selectedDate.getDay()]},{' '}
-                {selectedDate.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}:
-              </Typography>
-              <Box sx={containerContentStyling}>
-                <List>
-                  {filteredTasks.map((task) => (
-                    <ListItem >
-                      <Typography variant='h6' sx={{ mr: 1 }}>&#x2022</Typography>
-                      <Typography variant='h6'>{task.title}</Typography>
-                    </ListItem>
-                  ))}
-                </List>
-              </Box>
-            
-          
+            <Typography variant="h6" sx={{ fontWeight: 'medium', textAlign: 'center', mb: 2 }}>
+              Tasks for {daysOfWeek[selectedDate.getDay()]},{' '}
+              {selectedDate.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}:
+            </Typography>
+            <Box sx={containerContentStyling}>
+              <List sx={{display: 'block'}}>
+                {filteredTasks.map((task) => (
+                  <ListItem>
+                    <Typography variant='h6' sx={{ mr: 1 }}>&#x2022;</Typography>
+                    <Typography variant='h6' sx={{textDecoration: task.isComplete ? "line-through" : ""}}>{task.title}</Typography>
+                  </ListItem>
+                ))}
+              </List>
+            </Box>
         </Box>
       </>
     )

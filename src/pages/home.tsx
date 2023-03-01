@@ -4,6 +4,7 @@ import ToDo from '../components/ToDo'
 import CalendarColumn from '../components/CalendarColumn'
 import Completed from '../components/Completed'
 import Header from '../components/Header'
+import Footer from '../components/Footer'
 
 interface Task {
   id: number,
@@ -90,6 +91,7 @@ const Home = () => {
           <Completed tasks={completedTasks} handleUncompleteClick={handleUncompleteClick} handleDeleteClick={handleDeleteClick} editTask={editTask} />
           <CalendarColumn tasks={tasks} />
         </Box>
+        <Footer />
       </Box>
     )
   }
