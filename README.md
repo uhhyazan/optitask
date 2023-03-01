@@ -16,7 +16,7 @@ OptiTask is a task management app created with Typescript, React, and Material U
 
 To run the app locally, follow these steps:
 
-1. Clone this repository to your local machine using `git clone https://github.com/yourusername/optitask.git`
+1. Clone this repository to your local machine using `git clone https://github.com/uhhyazan/optitask.git`
 2. Navigate to the project directory using `cd optitask`
 3. Install dependencies using `npm install`
 4. Start the development server using `npm start`
